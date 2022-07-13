@@ -191,10 +191,11 @@ class Mage_Eav_Block_Adminhtml_Attribute_Set_Main extends Mage_Adminhtml_Block_T
             $item['allowDrop']  = true;
             $item['allowDrag']  = true;
 
-            $nodeChildren = Mage::getResourceModel($entity_type->getEntityAttributeCollection())
-                          ->setEntityTypeFilter($entity_type->getEntityTypeId())
-                          ->setAttributeGroupFilter($node->getId())
-                          ->load();
+            /** @var Mage_Eav_Model_Entity_Attribute $nodeChildren */
+            $nodeChildren = Mage::getResourceModel($entity_type->getEntityAttributeCollection());
+            $nodeChildren->setEntityTypeFilter($entity_type->getEntityTypeId())
+                         ->setAttributeGroupFilter($node->getId())
+                         ->load();
 
             if ($nodeChildren->getSize() > 0) {
                 $item['children'] = array();
@@ -234,10 +235,11 @@ class Mage_Eav_Block_Adminhtml_Attribute_Set_Main extends Mage_Adminhtml_Block_T
         /* @var $entity_type Mage_Eav_Model_Entity_Type */
         $entity_type = Mage::registry('entity_type');
 
-        $collection = Mage::getResourceModel($entity_type->getEntityAttributeCollection())
-                    ->setEntityTypeFilter($entity_type->getEntityTypeId())
-                    ->setAttributeSetFilter($setId)
-                    ->load();
+        /** @var Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection */
+        $collection = Mage::getResourceModel($entity_type->getEntityAttributeCollection());
+        $collection->setEntityTypeFilter($entity_type->getEntityTypeId())
+                   ->setAttributeSetFilter($setId)
+                   ->load();
 
         $attributesIds = array('0');
         /* @var $item Mage_Eav_Model_Entity_Attribute */
@@ -245,11 +247,12 @@ class Mage_Eav_Block_Adminhtml_Attribute_Set_Main extends Mage_Adminhtml_Block_T
             $attributesIds[] = $item->getAttributeId();
         }
 
-        $attributes = Mage::getResourceModel($entity_type->getEntityAttributeCollection())
-                    ->setEntityTypeFilter($entity_type->getEntityTypeId())
-                    ->setAttributesExcludeFilter($attributesIds)
-                    ->setOrder('attribute_code', 'asc')
-                    ->load();
+        /** @var Mage_Eav_Model_Resource_Entity_Attribute_Collection $attributes */
+        $attributes = Mage::getResourceModel($entity_type->getEntityAttributeCollection());
+        $attributes->setEntityTypeFilter($entity_type->getEntityTypeId())
+                   ->setAttributesExcludeFilter($attributesIds)
+                   ->setOrder('attribute_code', 'asc')
+                   ->load();
 
         foreach ($attributes as $child) {
             $attr = array(
@@ -355,7 +358,7 @@ class Mage_Eav_Block_Adminhtml_Attribute_Set_Main extends Mage_Adminhtml_Block_T
     /**
      * Retrieve current Attribute Set object
      *
-     * @return Mage_Eav_Model_Entity_Set
+     * @return Mage_Eav_Model_Entity_Attribute_Set
      */
     protected function _getAttributeSet()
     {
@@ -392,7 +395,7 @@ class Mage_Eav_Block_Adminhtml_Attribute_Set_Main extends Mage_Adminhtml_Block_T
      * Retrieve current Attribute Set object
      *
      * @deprecated use _getAttributeSet
-     * @return Mage_Eav_Model_Entity_Set
+     * @return Mage_Eav_Model_Entity_Attribute_Set
      */
     protected function _getSetData()
     {

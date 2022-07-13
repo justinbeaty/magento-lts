@@ -35,10 +35,10 @@
 class Mage_Eav_Adminhtml_Attribute_AbstractController extends Mage_Adminhtml_Controller_Action
 {
 
-    /* @var $_entityCode string */
+    /** @var string $_entityCode */
     protected $_entityCode;
 
-    /* @var $_entityType Mage_Eav_Model_Entity_Type */
+    /** @var Mage_Eav_Model_Entity_Type $_entityType */
     protected $_entityType;
 
     /**
@@ -133,8 +133,10 @@ class Mage_Eav_Adminhtml_Attribute_AbstractController extends Mage_Adminhtml_Con
 
         $attributeCode  = $this->getRequest()->getParam('attribute_code');
         $attributeId    = $this->getRequest()->getParam('attribute_id');
-        $attribute = Mage::getModel($this->_entityType->getAttributeModel())
-                   ->loadByCode($this->_entityType->getEntityTypeId(), $attributeCode);
+
+        /** @var Mage_Eav_Model_Entity_Attribute $attribute */
+        $attribute = Mage::getModel($this->_entityType->getAttributeModel());
+        $attribute->loadByCode($this->_entityType->getEntityTypeId(), $attributeCode);
 
         if ($attribute->getId() && !$attributeId) {
             Mage::getSingleton('adminhtml/session')->addError(
@@ -183,9 +185,9 @@ class Mage_Eav_Adminhtml_Attribute_AbstractController extends Mage_Adminhtml_Con
             $session = Mage::getSingleton('adminhtml/session');
 
             $redirectBack   = $this->getRequest()->getParam('back', false);
-            /* @var $model Mage_Eav_Model_Entity_Attribute */
+            /** @var Mage_Eav_Model_Entity_Attribute $model */
             $model = Mage::getModel($this->_entityType->getAttributeModel());
-            /* @var $helper Mage_Eav_Helper_Data */
+            /** @var Mage_Eav_Helper_Data $helper */
             $helper = Mage::helper('eav');
 
             $id = $this->getRequest()->getParam('attribute_id');

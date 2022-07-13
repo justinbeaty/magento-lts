@@ -35,10 +35,10 @@
 class Mage_Eav_Adminhtml_Set_AbstractController extends Mage_Adminhtml_Controller_Action
 {
 
-    /* @var $_entityCode string */
+    /** @var string $_entityCode */
     protected $_entityCode;
 
-    /* @var $_entityType Mage_Eav_Model_Entity_Type */
+    /** @var Mage_Eav_Model_Entity_Type $_entityType */
     protected $_entityType;
 
     /**
@@ -111,12 +111,12 @@ class Mage_Eav_Adminhtml_Set_AbstractController extends Mage_Adminhtml_Controlle
         $attributeSetId = $this->getRequest()->getParam('id', false);
         $isNewSet       = $this->getRequest()->getParam('gotoEdit', false) == '1';
 
-        /* @var $model Mage_Eav_Model_Entity_Attribute_Set */
+        /** @var Mage_Eav_Model_Entity_Attribute_Set $model */
         $model  = Mage::getModel('eav/entity_attribute_set')
-            ->setEntityTypeId($entityTypeId);
+                ->setEntityTypeId($entityTypeId);
 
-        /** @var $helper Mage_Adminhtml_Helper_Data */
-        $helper = Mage::helper('adminhtml');
+        /** @var Mage_Eav_Helper_Data $helper */
+        $helper = Mage::helper('eav');
 
         try {
             if ($isNewSet) {

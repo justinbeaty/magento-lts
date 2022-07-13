@@ -34,8 +34,9 @@ class Mage_Eav_Block_Adminhtml_Attribute_Grid extends Mage_Eav_Block_Adminhtml_A
     protected function _prepareCollection()
     {
         if ($entity_type = Mage::registry('entity_type')) {
-            $collection = Mage::getResourceModel($entity_type->getEntityAttributeCollection())
-                        ->setEntityTypeFilter($entity_type->getEntityTypeId());
+            /** @var Mage_Eav_Model_Resource_Entity_Attribute_Collection $collection */
+            $collection = Mage::getResourceModel($entity_type->getEntityAttributeCollection());
+            $collection->setEntityTypeFilter($entity_type->getEntityTypeId());
             $this->setCollection($collection);
         }
         return parent::_prepareCollection();

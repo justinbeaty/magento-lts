@@ -63,9 +63,11 @@ class Mage_Eav_Block_Adminhtml_Attribute_Set_Main_Formset extends Mage_Adminhtml
                 'value' => '1'
             ));
 
-            $sets = Mage::getModel('eav/entity_attribute_set')
-                ->getResourceCollection()
-                ->setEntityTypeFilter(Mage::registry('entity_type')->getEntityTypeId())
+            /** @var Mage_Eav_Model_Resource_Entity_Attribute_Set_Collection @collection */
+            $collection = Mage::getModel('eav/entity_attribute_set')
+                        ->getResourceCollection();
+
+            $sets = $collection->setEntityTypeFilter(Mage::registry('entity_type')->getEntityTypeId())
                 ->setOrder('attribute_set_name', 'asc')
                 ->load()
                 ->toOptionArray();

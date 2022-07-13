@@ -123,20 +123,6 @@ class Mage_Eav_Block_Adminhtml_Attribute_Edit_Tab_Main extends Mage_Eav_Block_Ad
             'class' => 'validate-digits',
         ));
 
-        $fieldset->addField('is_wysiwyg_enabled', 'select', array(
-            'name' => 'is_wysiwyg_enabled',
-            'label' => Mage::helper('eav')->__('Enable WYSIWYG'),
-            'title' => Mage::helper('eav')->__('Enable WYSIWYG'),
-            'values' => $yesnoSource,
-        ));
-
-        // define field dependencies
-        $this->setChild('form_after', $this->getLayout()->createBlock('adminhtml/widget_form_element_dependence')
-            ->addFieldMap("is_wysiwyg_enabled", 'wysiwyg_enabled')
-            ->addFieldMap("frontend_input", 'frontend_input_type')
-            ->addFieldDependence('wysiwyg_enabled', 'frontend_input_type', 'textarea')
-        );
-
         Mage::dispatchEvent("adminhtml_{$attributeObject->getEntityTypeCode()}_attribute_edit_prepare_form", array(
             'form'      => $form,
             'attribute' => $attributeObject
