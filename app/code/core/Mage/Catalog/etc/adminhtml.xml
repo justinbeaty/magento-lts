@@ -48,14 +48,32 @@
                 <attributes translate="title" module="catalog">
                     <title>Attributes</title>
                     <children>
-                        <attributes translate="title" module="catalog">
-                            <title>Manage Attributes</title>
-                            <action>adminhtml/catalog_product_attribute/</action>
-                        </attributes>
-                        <sets translate="title" module="catalog">
-                            <title>Manage Attribute Sets</title>
-                            <action>adminhtml/catalog_product_set/</action>
-                        </sets>
+                        <product translate="title" module="catalog">
+                            <title>Products</title>
+                            <children>
+                                <attributes translate="title" module="catalog">
+                                    <title>Attributes</title>
+                                    <action>adminhtml/catalog_product_attribute/</action>
+                                </attributes>
+                                <sets translate="title" module="catalog">
+                                    <title>Attribute Sets</title>
+                                    <action>adminhtml/catalog_product_set/</action>
+                                </sets>
+                            </children>
+                        </product>
+                        <category translate="title" module="catalog">
+                            <title>Categories</title>
+                            <children>
+                                <attributes translate="title" module="catalog">
+                                    <title>Attributes</title>
+                                    <action>adminhtml/catalog_category_attribute/</action>
+                                </attributes>
+                                <sets translate="title" module="catalog">
+                                    <title>Attribute Sets</title>
+                                    <action>adminhtml/catalog_category_set/</action>
+                                </sets>
+                            </children>
+                        </category>
                     </children>
                     <sort_order>20</sort_order>
                 </attributes>
@@ -89,12 +107,32 @@
                             <attributes translate="title">
                                 <title>Attributes</title>
                                 <children>
-                                    <attributes translate="title">
-                                        <title>Manage Attributes</title>
-                                    </attributes>
-                                    <sets translate="title">
-                                        <title>Manage Attribute Sets</title>
-                                    </sets>
+                                    <product translate="title">
+                                        <title>Products</title>
+                                        <children>
+                                            <attributes translate="title">
+                                                <title>Attributes</title>
+                                                <eav>catalog/attributes/attributes</eav>
+                                            </attributes>
+                                            <sets translate="title">
+                                                <title>Attribute Sets</title>
+                                                <eav>catalog/attributes/sets</eav>
+                                            </sets>
+                                        </children>
+                                    </product>
+                                    <category translate="title">
+                                        <title>Categories</title>
+                                        <children>
+                                            <attributes translate="title">
+                                                <title>Attributes</title>
+                                                <eav>eav/catalog_category/attributes</eav>
+                                            </attributes>
+                                            <sets translate="title">
+                                                <title>Attribute Sets</title>
+                                                <eav>eav/catalog_category/sets</eav>
+                                            </sets>
+                                        </children>
+                                    </category>
                                 </children>
                             </attributes>
                             <categories translate="title">
