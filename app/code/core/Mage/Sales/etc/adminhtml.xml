@@ -67,64 +67,6 @@
                     <action>adminhtml/sales_billing_agreement</action>
                     <sort_order>70</sort_order>
                 </billing_agreement>
-                <attributes translate="title" module="sales">
-                    <title>Attributes</title>
-                    <children>
-                        <order translate="title" module="sales">
-                            <title>Orders</title>
-                            <children>
-                                <attributes translate="title" module="sales">
-                                    <title>Attributes</title>
-                                    <action>adminhtml/sales_order_attribute/</action>
-                                </attributes>
-                                <sets translate="title" module="sales">
-                                    <title>Attribute Sets</title>
-                                    <action>adminhtml/sales_order_set/</action>
-                                </sets>
-                            </children>
-                        </order>
-                        <invoice translate="title" module="sales">
-                            <title>Invoices</title>
-                            <children>
-                                <attributes translate="title" module="sales">
-                                    <title>Attributes</title>
-                                    <action>adminhtml/sales_invoice_attribute/</action>
-                                </attributes>
-                                <sets translate="title" module="sales">
-                                    <title>Attribute Sets</title>
-                                    <action>adminhtml/sales_invoice_set/</action>
-                                </sets>
-                            </children>
-                        </invoice>
-                        <creditmemo translate="title" module="sales">
-                            <title>Credit Memos</title>
-                            <children>
-                                <attributes translate="title" module="sales">
-                                    <title>Attributes</title>
-                                    <action>adminhtml/sales_creditmemo_attribute/</action>
-                                </attributes>
-                                <sets translate="title" module="sales">
-                                    <title>Attribute Sets</title>
-                                    <action>adminhtml/sales_creditmemo_set/</action>
-                                </sets>
-                            </children>
-                        </creditmemo>
-                        <shipment translate="title" module="sales">
-                            <title>Shipments</title>
-                            <children>
-                                <attributes translate="title" module="sales">
-                                    <title>Attributes</title>
-                                    <action>adminhtml/sales_shipment_attribute/</action>
-                                </attributes>
-                                <sets translate="title" module="sales">
-                                    <title>Attribute Sets</title>
-                                    <action>adminhtml/sales_shipment_set/</action>
-                                </sets>
-                            </children>
-                        </shipment>
-                    </children>
-                    <sort_order>80</sort_order>
-                </attributes>
             </children>
          </sales>
          <system>
@@ -217,63 +159,6 @@
                                     </children>
                                 <sort_order>70</sort_order>
                             </billing_agreement>
-                            <attributes translate="title">
-                                <title>Attributes</title>
-                                <children>
-                                    <order translate="title">
-                                        <title>Orders</title>
-                                        <children>
-                                            <attributes translate="title">
-                                                <title>Attributes</title>
-                                                <eav>eav/order/attributes</eav>
-                                            </attributes>
-                                            <sets translate="title">
-                                                <title>Attribute Sets</title>
-                                                <eav>eav/order/sets</eav>
-                                            </sets>
-                                        </children>
-                                    </order>
-                                    <invoice translate="title">
-                                        <title>Invoices</title>
-                                        <children>
-                                            <attributes translate="title">
-                                                <title>Attributes</title>
-                                                <eav>eav/invoice/attributes</eav>
-                                            </attributes>
-                                            <sets translate="title">
-                                                <title>Attribute Sets</title>
-                                                <eav>eav/invoice/sets</eav>
-                                            </sets>
-                                        </children>
-                                    </invoice>
-                                    <creditmemo translate="title">
-                                        <title>Credit Memos</title>
-                                        <children>
-                                            <attributes translate="title">
-                                                <title>Attributes</title>
-                                                <eav>eav/creditmemo/attributes</eav>
-                                            </attributes>
-                                            <sets translate="title">
-                                                <title>Attribute Sets</title>
-                                                <eav>eav/creditmemo/sets</eav>
-                                            </sets>
-                                        </children>
-                                    </creditmemo>
-                                    <shipment translate="title">
-                                        <title>Shipments</title>
-                                        <children>
-                                            <attributes translate="title">
-                                                <title>Attributes</title>
-                                                <eav>eav/shipment/attributes</eav>
-                                            </attributes>
-                                            <sets translate="title">
-                                                <title>Attribute Sets</title>
-                                                <eav>eav/shipment/sets</eav>
-                                            </sets>
-                                        </children>
-                                    </shipment>
-                                </children>
-                            </attributes>
                         </children>
                     </sales>
                     <system>

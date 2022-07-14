@@ -160,8 +160,7 @@ class Mage_Sales_Model_Order_Invoice extends Mage_Sales_Model_Abstract
     /*
      * Identifier for order history item
      */
-    const ENTITY              = 'invoice';
-    const HISTORY_ENTITY_NAME = self::ENTITY;
+    const HISTORY_ENTITY_NAME = 'invoice';
 
     protected static $_states;
 

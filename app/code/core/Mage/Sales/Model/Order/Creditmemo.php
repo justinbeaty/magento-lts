@@ -180,8 +180,7 @@ class Mage_Sales_Model_Order_Creditmemo extends Mage_Sales_Model_Abstract
     /*
      * Identifier for order history item
      */
-    const ENTITY              = 'creditmemo';
-    const HISTORY_ENTITY_NAME = self::ENTITY;
+    const HISTORY_ENTITY_NAME = 'creditmemo';
 
     protected static $_states;
 
