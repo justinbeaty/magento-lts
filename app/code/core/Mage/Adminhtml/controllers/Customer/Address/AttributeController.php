@@ -51,19 +51,24 @@ class Mage_Adminhtml_Customer_Address_AttributeController extends Mage_Eav_Admin
 
         $this->_title($this->__('Customers'))
              ->_title($this->__('Attributes'))
-             ->_title($this->__('Address'))
-             ->_title($this->__('Attributes'));
+             ->_title($this->__('Manage Customer Address Attributes'));
 
-        $this->_setActiveMenu('customers/attributes')
+        $this->_setActiveMenu('customer/attributes')
              ->_addBreadcrumb(
                  $this->__('Customers'),
                  $this->__('Customers')
              )
              ->_addBreadcrumb(
-                 $this->__('Attributes'),
-                 $this->__('Attributes')
+                 $this->__('Manage Customer Address Attributes'),
+                 $this->__('Manage Customer Address Attributes')
              );
 
         return $this;
     }
+
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('customer/attributes/customer_address_attributes');
+    }
+
 }
