@@ -51,8 +51,7 @@ class Mage_Adminhtml_Catalog_Category_AttributeController extends Mage_Eav_Admin
 
         $this->_title($this->__('Catalog'))
              ->_title($this->__('Attributes'))
-             ->_title($this->__('Category'))
-             ->_title($this->__('Attributes'));
+             ->_title($this->__('Manage Category Attributes'));
 
         $this->_setActiveMenu('catalog/attributes')
              ->_addBreadcrumb(
@@ -60,10 +59,16 @@ class Mage_Adminhtml_Catalog_Category_AttributeController extends Mage_Eav_Admin
                  $this->__('Catalog')
              )
              ->_addBreadcrumb(
-                 $this->__('Attributes'),
-                 $this->__('Attributes')
+                 $this->__('Manage Category Attributes'),
+                 $this->__('Manage Category Attributes')
              );
 
         return $this;
     }
+
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('catalog/attributes/category_attributes');
+    }
+
 }
