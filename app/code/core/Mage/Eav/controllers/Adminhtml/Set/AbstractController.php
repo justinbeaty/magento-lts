@@ -32,7 +32,7 @@
  * @author      Magento Core Team <core@magentocommerce.com>
  */
 
-class Mage_Eav_Adminhtml_Set_AbstractController extends Mage_Adminhtml_Controller_Action
+abstract class Mage_Eav_Adminhtml_Set_AbstractController extends Mage_Adminhtml_Controller_Action
 {
 
     /** @var string $_entityCode */
@@ -196,11 +196,6 @@ class Mage_Eav_Adminhtml_Set_AbstractController extends Mage_Adminhtml_Controlle
             $this->_getSession()->addError($this->__('An error occurred while deleting this set.'));
             $this->_redirectReferer();
         }
-    }
-
-    protected function _isAllowed()
-    {
-        return Mage::getSingleton('admin/session')->isAllowed("eav/{$this->_entityCode}/sets");
     }
 
 }

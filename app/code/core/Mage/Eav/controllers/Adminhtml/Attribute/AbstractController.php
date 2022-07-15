@@ -32,7 +32,7 @@
  * @author      Magento Core Team <core@magentocommerce.com>
  */
 
-class Mage_Eav_Adminhtml_Attribute_AbstractController extends Mage_Adminhtml_Controller_Action
+abstract class Mage_Eav_Adminhtml_Attribute_AbstractController extends Mage_Adminhtml_Controller_Action
 {
 
     /** @var string $_entityCode */
@@ -349,8 +349,4 @@ class Mage_Eav_Adminhtml_Attribute_AbstractController extends Mage_Adminhtml_Con
         $this->_redirect('*/*/');
     }
 
-    protected function _isAllowed()
-    {
-        return Mage::getSingleton('admin/session')->isAllowed("eav/{$this->_entityCode}/attributes");
-    }
 }
