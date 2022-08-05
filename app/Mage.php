@@ -51,7 +51,6 @@ include_once "Varien/Autoload.php";
 
 Varien_Autoload::register();
 
-include_once "phpseclib/bootstrap.php";
 include_once "mcryptcompat/mcrypt.php";
 
 /* Support additional includes, such as composer's vendor/autoload.php files */
