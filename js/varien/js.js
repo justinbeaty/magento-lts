@@ -274,9 +274,6 @@ function expandDetails(el, childClass) {
     }
 }
 
-// Version 1.0
-var isIE = navigator.appVersion.match(/MSIE/) == "MSIE";
-
 if (!window.Varien)
     var Varien = new Object();
 
