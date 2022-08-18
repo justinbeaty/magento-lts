@@ -57,6 +57,9 @@
   "autoload-dev": {
     "psr-4": { "OpenMage\\Tests\\Unit\\": "dev/tests/unit" }
   },
+  "autoload": {
+    "psr-4": { "OpenMage\\Scripts\\": "dev/scripts" }
+  },
   "extra": {
     "branch-alias": {
       "dev-main": "1.9.4.x-dev"
@@ -68,5 +71,10 @@
       "magento-hackathon/magento-composer-installer": true
     },
     "sort-packages": true
+  },
+  "scripts": {
+    "release-builder": [
+      "OpenMage\\Scripts\\Release::Run"
+    ]
   }
 }
