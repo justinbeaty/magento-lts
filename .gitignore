@@ -47,6 +47,9 @@
 /var/*
 !/var/.htaccess
 
+# Javascript libraries installed with composer
+/js/lib/jquery
+
 # composer
 /vendor
 

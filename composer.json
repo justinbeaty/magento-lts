@@ -19,7 +19,9 @@
     "ext-simplexml": "*",
     "ext-soap": "*",
     "ext-zlib": "*",
-    "magento-hackathon/magento-composer-installer": "^3.1 || ^2.1 || ^4.0"
+    "components/jquery": "^1.12.4",
+    "magento-hackathon/magento-composer-installer": "^3.1 || ^2.1 || ^4.0",
+    "oomphinc/composer-installers-extender": "^2.0"
   },
   "require-dev": {
     "macopedia/phpstan-magento1": "^1.0.4",
@@ -58,6 +60,14 @@
     "psr-4": { "OpenMage\\Tests\\Unit\\": "dev/tests/unit" }
   },
   "extra": {
+    "installer-types": [
+      "component"
+    ],
+    "installer-paths": {
+      "js/lib/{$name}": [
+        "type:component"
+      ]
+    },
     "branch-alias": {
       "dev-main": "1.9.4.x-dev"
     },
@@ -65,7 +75,9 @@
   },
   "config": {
     "allow-plugins": {
-      "magento-hackathon/magento-composer-installer": true
+      "magento-hackathon/magento-composer-installer": true,
+      "composer/installers": true,
+      "oomphinc/composer-installers-extender": true
     },
     "sort-packages": true
   }
