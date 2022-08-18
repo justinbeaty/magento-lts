@@ -72,8 +72,9 @@ class Release
             /** @var string $type */
             $type = $package->getType();
 
-            // Remove Magento module from composer.json, but we need to separately install its dependencies
-            if ($type === 'magento-module') {
+            // Remove magento specific packages such as magento-source or magento-module
+            // However we need to keep track of its dependencies to install later
+            if (strpos($type, 'magento-') === 0) {
                 /** @var Composer\Package\Link $dependency */
                 foreach ($package->getRequires() as $name => $dependency) {
                     $require[$name] = $require[$name] ?? [];
@@ -82,16 +83,14 @@ class Release
                 $remove[] = $package->getName();
             }
 
-            // Remove this repo when installed via aydin-hassan/magento-core-composer-installer
-            if ($type === 'magento-source') {
-                $remove[] = $package->getName();
-            }
-
             // Remove any composer plugins, such as magento-hackathon/magento-composer-installer
             if ($type === 'composer-plugin') {
                 $remove[] = $package->getName();
             }
         }
+
+        // Do not reinstall any package we are explicitly removing
+        $require = array_diff_key($require, array_flip($remove));
 
         /** @var string[] $require */
         $require = array_map(
@@ -104,7 +103,7 @@ class Release
 
                 // Return string that can be used for composer install, i.e.:
                 // "colinmollenhour/php-redis-session-abstract:>= 1.4.0.0-dev < 1.5.0.0-dev"
-                return $name . ':' . trim($constraint, '[]');
+                return $name . ':' . trim(str_replace(['[', ']'], '', $constraint));
             },
             array_keys($require), $require
         );
