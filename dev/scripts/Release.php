@@ -4,7 +4,6 @@ namespace OpenMage\Scripts;
 
 use Composer\Script\Event;
 use Composer\Semver\Constraint;
-use Composer\Package\Version\VersionParser;
 use Composer\Console\Application;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
@@ -77,7 +76,7 @@ class Release
             if ($type === 'magento-module') {
                 /** @var Composer\Package\Link $dependency */
                 foreach ($package->getRequires() as $name => $dependency) {
-                    $require[$name] ??= [];
+                    $require[$name] = $require[$name] ?? [];
                     $require[$name][] = $dependency->getConstraint();
                 }
                 $remove[] = $package->getName();
