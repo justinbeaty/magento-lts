@@ -258,6 +258,9 @@ class Mage_Catalog_Helper_Product extends Mage_Core_Helper_Url
             ],
             'boolean'       => [
                 'source_model'      => 'eav/entity_attribute_source_boolean'
+            ],
+            'color'         => [
+                'backend_model'      => 'eav/entity_attribute_backend_color'
             ]
         ];
 
