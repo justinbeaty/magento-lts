@@ -512,17 +512,17 @@ abstract class Mage_Catalog_Model_Resource_Abstract extends Mage_Eav_Model_Entit
         return $data;
     }
 
-    /**
-     * Check is attribute value empty
-     *
-     * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
-     * @param mixed $value
-     * @return bool
-     */
-    protected function _isAttributeValueEmpty(Mage_Eav_Model_Entity_Attribute_Abstract $attribute, $value)
-    {
-        return $value === false;
-    }
+    // /**
+    //  * Check is attribute value empty
+    //  *
+    //  * @param Mage_Eav_Model_Entity_Attribute_Abstract $attribute
+    //  * @param mixed $value
+    //  * @return bool
+    //  */
+    // protected function _isAttributeValueEmpty(Mage_Eav_Model_Entity_Attribute_Abstract $attribute, $value)
+    // {
+    //     return $value === false;
+    // }
 
     /**
      * Return if attribute exists in original data array.

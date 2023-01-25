@@ -533,7 +533,7 @@ abstract class Mage_Eav_Model_Entity_Attribute_Abstract extends Mage_Core_Model_
         return is_array($value)
             || ($value === null)
             || $value === false && $attrType !== 'int'
-            || $value === '' && ($attrType === 'int' || $attrType === 'decimal' || $attrType === 'datetime');
+            || $value === '' && ($attrType === 'int' || $attrType === 'decimal' || $attrType === 'datetime' || $attrType === 'varchar' || $attrType === 'text');
     }
 
     /**
