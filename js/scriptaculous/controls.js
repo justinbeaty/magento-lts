@@ -131,7 +131,7 @@ Autocompleter.Base = Class.create({
       switch(event.keyCode) {
        case Event.KEY_TAB:
        case Event.KEY_RETURN:
-         this.selectEntry();
+         this.selectEntry(event);
          Event.stop(event);
        case Event.KEY_ESC:
          this.hide();
@@ -183,7 +183,7 @@ Autocompleter.Base = Class.create({
   onClick: function(event) {
     var element = Event.findElement(event, 'LI');
     this.index = element.autocompleteIndex;
-    this.selectEntry();
+    this.selectEntry(event);
     this.hide();
   },
 
@@ -230,14 +230,14 @@ Autocompleter.Base = Class.create({
     return this.getEntry(this.index);
   },
 
-  selectEntry: function() {
+  selectEntry: function(event) {
     this.active = false;
-    this.updateElement(this.getCurrentEntry());
+    this.updateElement(this.getCurrentEntry(), event);
   },
 
-  updateElement: function(selectedElement) {
+  updateElement: function(selectedElement, event) {
     if (this.options.updateElement) {
-      this.options.updateElement(selectedElement);
+      this.options.updateElement(selectedElement, event);
       return;
     }
     var value = '';

@@ -43,8 +43,13 @@
                         evalJSON:'force'
                     }
                 );
-                function getSelectionId(li) {
-                    location.href = li.getAttribute('url');
+                function getSelectionId(li, event) {
+                    var url = li.getAttribute('url');
+                    if (event && event.ctrlKey) {
+                        window.open(url, '_blank');
+                    } else {
+                        location.href = url;
+                    }
                 }
             </script>
         </fieldset>
